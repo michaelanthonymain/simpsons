@@ -23,6 +23,20 @@ post '/homer' do
   end
 end
 
-###################################
-# FIXME: Implement Lisa endpoints #
-###################################
+get '/lisa' do
+  "The baritone sax is the best sax"
+end
+
+post '/lisa' do
+  gift = parse_gift(request.body.read)
+  case gift
+  when 'saxaphone'
+    [200, 'I REALLY love it']
+  when 'book'
+    [200, 'I love it']
+  when 'skateboard'
+    [400, 'I REALLY hate it']
+  else
+    [400, 'I hate it']
+  end
+end
